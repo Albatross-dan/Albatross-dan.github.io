@@ -19,16 +19,19 @@ export default function Home({ darkMode, toggleDarkMode }) {
           name="description"
           content={`${siteConfig.name} is a ${siteConfig.title} based in ${siteConfig.location}. ${siteConfig.description}`}
         />
+        <meta name="theme-color" content="#182d49" />
+        <meta name="author" content={siteConfig.name} />
+        <meta name="reply-to" content={siteConfig.email} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta property="og:title" content={`${siteConfig.name} — ${siteConfig.title}`} />
         <meta property="og:description" content={siteConfig.description} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://albatrossdan.dev" />
+        <meta property="og:url" content={siteConfig.siteUrl} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${siteConfig.name} — ${siteConfig.title}`} />
         <meta name="twitter:description" content={siteConfig.description} />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://albatrossdan.dev" />
+        <link rel="canonical" href={siteConfig.siteUrl} />
       </Head>
 
       <div className="min-h-screen bg-white dark:bg-gray-950 transition-colors duration-300">

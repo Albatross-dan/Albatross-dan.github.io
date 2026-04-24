@@ -10,10 +10,10 @@ const categoryIcons = {
 };
 
 const categoryColors = {
-  Frontend: 'from-blue-500 to-cyan-500',
-  Backend: 'from-green-500 to-emerald-500',
-  Database: 'from-orange-500 to-yellow-500',
-  Tools: 'from-purple-500 to-pink-500',
+  Frontend: 'from-primary-600 to-accent-500',
+  Backend: 'from-emerald-600 to-teal-500',
+  Database: 'from-slate-700 to-primary-500',
+  Tools: 'from-accent-600 to-primary-500',
 };
 
 function SkillBar({ name, level, index, inView }) {
@@ -30,7 +30,7 @@ function SkillBar({ name, level, index, inView }) {
           initial={{ width: 0 }}
           animate={inView ? { width: `${level}%` } : { width: 0 }}
           transition={{ duration: 0.8, delay: index * 0.05, ease: 'easeOut' }}
-          className="h-full rounded-full bg-gradient-to-r from-primary-500 to-accent-500"
+          className="h-full rounded-full bg-gradient-to-r from-primary-600 to-accent-500"
         />
       </div>
     </div>
@@ -102,7 +102,7 @@ export default function Skills() {
               key={category}
               category={category}
               skillList={skillList}
-              colorClass={categoryColors[category] || 'from-primary-500 to-accent-500'}
+              colorClass={categoryColors[category] || 'from-primary-600 to-accent-500'}
             />
           ))}
         </div>

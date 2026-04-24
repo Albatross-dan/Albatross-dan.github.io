@@ -6,8 +6,8 @@
 
 @layer base {
   :root {
-    --gradient-start: #0ea5e9;
-    --gradient-end: #8b5cf6;
+    --gradient-start: #345f96;
+    --gradient-end: #3f9088;
   }
 
   html {
@@ -34,11 +34,11 @@
   }
 
   .card {
-    @apply bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-lg transition-all duration-300;
+    @apply bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300;
   }
 
   .btn-primary {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-semibold transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg shadow-primary-500/25;
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary-700 hover:bg-primary-800 text-white font-semibold transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg shadow-primary-900/20;
   }
 
   .btn-secondary {
@@ -73,22 +73,22 @@
   }
 
   .bg-grid {
-    background-image: linear-gradient(rgba(14, 165, 233, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(52, 95, 150, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(52, 95, 150, 0.06) 1px, transparent 1px);
     background-size: 32px 32px;
   }
 
   .bg-dots {
-    background-image: radial-gradient(circle, rgba(14, 165, 233, 0.15) 1px, transparent 1px);
+    background-image: radial-gradient(circle, rgba(63, 144, 136, 0.18) 1px, transparent 1px);
     background-size: 24px 24px;
   }
 
   .glow {
-    box-shadow: 0 0 40px rgba(14, 165, 233, 0.3);
+    box-shadow: 0 0 40px rgba(52, 95, 150, 0.25);
   }
 
   .glow-lg {
-    box-shadow: 0 0 80px rgba(14, 165, 233, 0.2);
+    box-shadow: 0 0 80px rgba(31, 57, 93, 0.18);
   }
 }
 
@@ -113,8 +113,8 @@
 .loader {
   width: 40px;
   height: 40px;
-  border: 3px solid rgba(14, 165, 233, 0.2);
-  border-top-color: #0ea5e9;
+  border: 3px solid rgba(52, 95, 150, 0.18);
+  border-top-color: #345f96;
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }
@@ -139,7 +139,7 @@
 .cursor-blink::after {
   content: '|';
   animation: blink 1s step-end infinite;
-  color: #0ea5e9;
+  color: #345f96;
 }
 
 @keyframes blink {

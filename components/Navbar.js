@@ -27,6 +27,10 @@ export default function Navbar({ darkMode, toggleDarkMode }) {
   const handleNavClick = (e, href) => {
     e.preventDefault();
     setMobileOpen(false);
+    if (href === '#') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
     const el = document.querySelector(href);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
@@ -53,7 +57,7 @@ export default function Navbar({ darkMode, toggleDarkMode }) {
               onClick={(e) => handleNavClick(e, '#')}
               className="flex items-center gap-2 font-bold text-gray-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
             >
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-600 to-accent-600 flex items-center justify-center">
                 <Code2 size={16} className="text-white" />
               </div>
               <span className="font-mono text-sm hidden sm:block">{siteConfig.githubUsername}</span>

@@ -1,10 +1,11 @@
 import { useState } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Github, ExternalLink, Star, Code2, Zap } from 'lucide-react';
-import { projects } from '../lib/data';
+import { Github, ExternalLink, Star } from 'lucide-react';
+import { projects, siteConfig } from '../lib/data';
 
-const categories = ['All', 'Full Stack', 'Frontend', 'Backend'];
+const PROJECTS_PER_PAGE = 6;
 
 const techColors = {
   'React': 'bg-blue-100 text-blue-700 dark:bg-blue-950/50 dark:text-blue-300',
@@ -17,7 +18,7 @@ const techColors = {
   'TypeScript': 'bg-blue-100 text-blue-700 dark:bg-blue-950/50 dark:text-blue-300',
   'Python': 'bg-yellow-100 text-yellow-700 dark:bg-yellow-950/50 dark:text-yellow-300',
   'PostgreSQL': 'bg-indigo-100 text-indigo-700 dark:bg-indigo-950/50 dark:text-indigo-300',
-  'Framer Motion': 'bg-pink-100 text-pink-700 dark:bg-pink-950/50 dark:text-pink-300',
+  'Framer Motion': 'bg-accent-100 text-accent-700 dark:bg-accent-950/50 dark:text-accent-300',
   'default': 'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400',
 };
 
@@ -50,7 +51,7 @@ function ProjectCard({ project, index }) {
     >
       {/* Featured badge */}
       {project.featured && (
-        <div className="absolute top-4 right-4 z-10 flex items-center gap-1 px-3 py-1 rounded-full bg-gradient-to-r from-primary-500 to-accent-500 text-white text-xs font-semibold shadow-lg">
+        <div className="absolute top-4 right-4 z-10 flex items-center gap-1 px-3 py-1 rounded-full bg-gradient-to-r from-primary-600 to-accent-600 text-white text-xs font-semibold shadow-lg">
           <Star size={10} fill="currentColor" />
           Featured
         </div>
@@ -65,10 +66,11 @@ function ProjectCard({ project, index }) {
         }`}
       >
         {project.image ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <Image
             src={project.image}
             alt={`${project.title} preview`}
+            fill
+            sizes={project.featured ? '(min-width: 768px) 50vw, 100vw' : '(min-width: 1024px) 33vw, 100vw'}
             className="w-full h-full object-cover"
           />
         ) : (
@@ -88,7 +90,7 @@ function ProjectCard({ project, index }) {
         {/* Overlay on hover */}
         <motion.div
           animate={{ opacity: hovered ? 1 : 0 }}
-          className="absolute inset-0 bg-primary-600/10 dark:bg-primary-400/5 backdrop-blur-[1px] flex items-center justify-center gap-3"
+          className="absolute inset-0 bg-slate-950/10 dark:bg-slate-950/30 backdrop-blur-[1px] flex items-center justify-center gap-3"
         >
           {project.github && (
             <a
@@ -182,11 +184,20 @@ function ProjectCard({ project, index }) {
 
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState('All');
+  const [visibleCount, setVisibleCount] = useState(PROJECTS_PER_PAGE);
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.05 });
 
+  const categories = ['All', ...new Set(projects.map((project) => project.category))];
   const filtered = activeCategory === 'All'
     ? projects
     : projects.filter((p) => p.category === activeCategory);
+  const visibleProjects = filtered.slice(0, visibleCount);
+  const hasMoreProjects = visibleCount < filtered.length;
+
+  const handleCategoryChange = (category) => {
+    setActiveCategory(category);
+    setVisibleCount(PROJECTS_PER_PAGE);
+  };
 
   return (
     <section id="projects" className="py-24">
@@ -218,14 +229,14 @@ export default function Projects() {
           {categories.map((cat) => (
             <button
               key={cat}
-              onClick={() => setActiveCategory(cat)}
+              onClick={() => handleCategoryChange(cat)}
               className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                 activeCategory === cat
-                  ? 'bg-primary-600 text-white shadow-lg shadow-primary-500/25'
-                  : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700'
+                  ? 'bg-primary-700 text-white shadow-lg shadow-primary-900/20'
+                  : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
               }`}
             >
-              {cat}
+              {cat} <span className="ml-1 opacity-70">({cat === 'All' ? projects.length : projects.filter((project) => project.category === cat).length})</span>
             </button>
           ))}
         </motion.div>
@@ -233,11 +244,23 @@ export default function Projects() {
         {/* Projects grid */}
         <div className="grid md:grid-cols-2 gap-6">
           <AnimatePresence>
-            {filtered.map((project, i) => (
+            {visibleProjects.map((project, i) => (
               <ProjectCard key={project.id} project={project} index={i} />
             ))}
           </AnimatePresence>
         </div>
+
+        {hasMoreProjects && (
+          <div className="mt-10 text-center">
+            <button
+              type="button"
+              onClick={() => setVisibleCount((count) => count + PROJECTS_PER_PAGE)}
+              className="btn-secondary"
+            >
+              Show More Projects
+            </button>
+          </div>
+        )}
 
         {/* GitHub CTA */}
         <motion.div
@@ -247,10 +270,12 @@ export default function Projects() {
           className="text-center mt-12"
         >
           <p className="text-gray-500 dark:text-gray-400 mb-4">
-            Want to see more? Check out my GitHub profile
+            {filtered.length === projects.length
+              ? 'Every project in the portfolio is shown here, with GitHub available for additional repository context.'
+              : `Showing ${filtered.length} ${activeCategory.toLowerCase()} project${filtered.length === 1 ? '' : 's'}.`}
           </p>
           <a
-            href="https://github.com/Albatross-dan"
+            href={siteConfig.social.github}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-secondary inline-flex"

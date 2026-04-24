@@ -33,7 +33,7 @@ export default function Footer() {
               onClick={(e) => handleNavClick(e, '#hero')}
               className="flex items-center gap-2 font-bold text-gray-900 dark:text-white mb-3"
             >
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-600 to-accent-600 flex items-center justify-center">
                 <Code2 size={16} className="text-white" />
               </div>
               {siteConfig.name}

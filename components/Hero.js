@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ArrowDown, Github, Linkedin, Twitter, Mail, Download, ExternalLink, Sparkles } from 'lucide-react';
 import { siteConfig } from '../lib/data';
@@ -29,6 +31,8 @@ function GridBackground() {
 
 // Avatar / Profile image placeholder
 function Avatar() {
+  const [imageError, setImageError] = useState(false);
+
   return (
     <motion.div
       initial={{ scale: 0, opacity: 0 }}
@@ -36,18 +40,29 @@ function Avatar() {
       transition={{ duration: 0.5, delay: 0.2, type: 'spring', stiffness: 120 }}
       className="relative"
     >
-      <div className="w-32 h-32 md:w-40 md:h-40 rounded-2xl bg-gradient-to-br from-primary-400 to-accent-500 p-1 shadow-2xl shadow-primary-500/30 animate-float">
-        <div className="w-full h-full rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center overflow-hidden">
-          {/* Replace with actual image: <Image src="/avatar.jpg" alt="Dan Albatross" fill className="object-cover" /> */}
-          <span className="text-5xl md:text-6xl select-none" role="img" aria-label="Developer avatar">
-            👨‍💻
-          </span>
+      <div className="w-32 h-32 md:w-40 md:h-40 rounded-2xl bg-gradient-to-br from-primary-500 to-accent-500 p-1 shadow-2xl shadow-primary-900/20 animate-float">
+        <div className="relative w-full h-full rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center overflow-hidden">
+          {imageError ? (
+            <span className="text-3xl md:text-4xl font-semibold text-slate-600 dark:text-slate-300">
+              DA
+            </span>
+          ) : (
+            <Image
+              src={siteConfig.profileImage}
+              alt={`${siteConfig.name} profile portrait`}
+              fill
+              sizes="(min-width: 768px) 160px, 128px"
+              className="object-cover"
+              priority
+              onError={() => setImageError(true)}
+            />
+          )}
         </div>
       </div>
       {/* Status badge */}
-      <div className="absolute -bottom-2 -right-2 bg-green-500 text-white text-xs font-semibold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-lg">
+      <div className="absolute -bottom-2 -right-2 bg-accent-600 text-white text-xs font-semibold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-lg">
         <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
-        Available
+        {siteConfig.availableForWork ? 'Available' : 'Booked'}
       </div>
     </motion.div>
   );

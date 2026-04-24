@@ -13,7 +13,7 @@ function RepoCard({ repo, index }) {
     Python: '#3572a5',
     HTML: '#e44b23',
     CSS: '#563d7c',
-    default: '#8b5cf6',
+    default: '#3f9088',
   };
 
   const langColor = languageColors[repo.language] || languageColors.default;
@@ -141,7 +141,7 @@ export default function GitHubSection() {
                   View full profile, contribution graph, and all repositories
                 </p>
               </div>
-              <ExternalLink size={20} className="text-gray-400 group-hover:text-primary-500 transition-colors flex-shrink-0" />
+              <ExternalLink size={20} className="text-gray-400 group-hover:text-accent-500 transition-colors flex-shrink-0" />
             </div>
           </a>
         </motion.div>
