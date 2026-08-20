@@ -15,9 +15,9 @@ const socialLinks = [
 function BackgroundOrbs() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-      <div className="absolute top-1/4 left-1/4 w-64 h-64 md:w-96 md:h-96 bg-primary-500/10 dark:bg-primary-500/20 rounded-full blur-3xl animate-pulse-slow" />
-      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 md:w-80 md:h-80 bg-accent-500/10 dark:bg-accent-500/20 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '2s' }} />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-primary-400/5 rounded-full blur-2xl" />
+      <div className="absolute top-1/4 left-1/4 w-64 h-64 md:w-96 md:h-96 bg-primary-500/4 rounded-full blur-3xl animate-pulse-slow" />
+      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 md:w-80 md:h-80 bg-primary-500/3 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '2s' }} />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-white/3 rounded-full blur-2xl" />
     </div>
   );
 }
@@ -40,10 +40,10 @@ function Avatar() {
       transition={{ duration: 0.5, delay: 0.2, type: 'spring', stiffness: 120 }}
       className="relative"
     >
-      <div className="w-32 h-32 md:w-40 md:h-40 rounded-2xl bg-gradient-to-br from-primary-500 to-accent-500 p-1 shadow-2xl shadow-primary-900/20 animate-float">
-        <div className="relative w-full h-full rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center overflow-hidden">
+      <div className="w-32 h-32 md:w-40 md:h-40 rounded-2xl bg-primary-600 p-1 shadow-2xl shadow-black/20 animate-float">
+        <div className="relative w-full h-full rounded-xl bg-[#0B100D] flex items-center justify-center overflow-hidden">
           {imageError ? (
-            <span className="text-3xl md:text-4xl font-semibold text-slate-600 dark:text-slate-300">
+            <span className="text-3xl md:text-4xl font-semibold text-[#A3A3A3]">
               DA
             </span>
           ) : (
@@ -60,7 +60,7 @@ function Avatar() {
         </div>
       </div>
       {/* Status badge */}
-      <div className="absolute -bottom-2 -right-2 bg-accent-600 text-white text-xs font-semibold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-lg">
+      <div className="absolute -bottom-2 -right-2 bg-primary-600 text-[#050805] text-xs font-semibold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-lg">
         <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
         {siteConfig.availableForWork ? 'Available' : 'Booked'}
       </div>
@@ -101,9 +101,9 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-50 dark:bg-primary-950/50 border border-primary-200 dark:border-primary-800/50 text-primary-700 dark:text-primary-300 text-sm font-medium mb-6"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0B100D] border border-[#1F2922] text-[#A3A3A3] text-sm font-medium mb-6"
             >
-              <Sparkles size={14} className="text-primary-500" />
+              <Sparkles size={14} className="text-primary-400" />
               Open to opportunities
             </motion.div>
 
@@ -112,10 +112,10 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 dark:text-white leading-tight"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-[#F5F5F5] leading-tight"
             >
               Hi, I&apos;m{' '}
-              <span className="gradient-text">{siteConfig.name}</span>
+              <span className="text-[#F5F5F5]">{siteConfig.name}</span>
             </motion.h1>
 
             {/* Title */}
@@ -123,7 +123,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="mt-2 text-xl sm:text-2xl font-medium text-gray-500 dark:text-gray-400 font-mono"
+              className="mt-2 text-xl sm:text-2xl font-medium text-[#D4D4D4] font-mono"
             >
               {'< '}{siteConfig.title}{' />'}
             </motion.p>
@@ -133,7 +133,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="mt-6 text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-xl leading-relaxed text-balance"
+              className="mt-6 text-lg sm:text-xl text-[#A3A3A3] max-w-xl leading-relaxed text-balance"
             >
               {siteConfig.description}
             </motion.p>
@@ -173,7 +173,7 @@ export default function Hero() {
                   target={label !== 'Email' ? '_blank' : undefined}
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="w-10 h-10 rounded-xl flex items-center justify-center text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-950/50 border border-gray-200 dark:border-gray-800 transition-all duration-200 hover:scale-110 hover:border-primary-300 dark:hover:border-primary-700"
+                  className="w-10 h-10 rounded-xl flex items-center justify-center text-[#A3A3A3] hover:text-primary-400 hover:bg-[#0B100D] border border-[#1F2922] transition-all duration-200 hover:scale-110 hover:border-primary-700"
                 >
                   <Icon size={18} />
                 </a>
@@ -185,7 +185,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.6 }}
-              className="mt-6 text-sm text-gray-400 dark:text-gray-600"
+              className="mt-6 text-sm text-[#737373]"
             >
               📍 {siteConfig.location}
             </motion.p>
@@ -205,7 +205,7 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 1 }}
         aria-label="Scroll down"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-gray-400 dark:text-gray-600 hover:text-primary-500 transition-colors group"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-[#737373] hover:text-primary-400 transition-colors group"
       >
         <span className="text-xs font-medium">Scroll down</span>
         <motion.div

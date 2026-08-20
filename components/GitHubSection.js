@@ -8,12 +8,12 @@ function RepoCard({ repo, index }) {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   const languageColors = {
-    JavaScript: '#f7df1e',
-    TypeScript: '#3178c6',
-    Python: '#3572a5',
-    HTML: '#e44b23',
-    CSS: '#563d7c',
-    default: '#3f9088',
+    JavaScript: '#22c55e',
+    TypeScript: '#16a34a',
+    Python: '#4ade80',
+    HTML: '#22c55e',
+    CSS: '#166534',
+    default: '#22c55e',
   };
 
   const langColor = languageColors[repo.language] || languageColors.default;
@@ -31,19 +31,19 @@ function RepoCard({ repo, index }) {
     >
       <div className="flex items-start justify-between mb-3">
         <div className="flex items-center gap-2">
-          <Code2 size={16} className="text-primary-500 flex-shrink-0" />
-          <h3 className="font-semibold text-gray-900 dark:text-white text-sm group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors truncate">
+          <Code2 size={16} className="text-primary-400 flex-shrink-0" />
+          <h3 className="font-semibold text-[#F5F5F5] text-sm group-hover:text-primary-400 transition-colors truncate">
             {repo.name}
           </h3>
         </div>
-        <ExternalLink size={14} className="text-gray-400 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
+        <ExternalLink size={14} className="text-[#737373] flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
       </div>
 
-      <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed mb-4 line-clamp-2 min-h-[2.5rem]">
+      <p className="text-xs text-[#A3A3A3] leading-relaxed mb-4 line-clamp-2 min-h-[2.5rem]">
         {repo.description || 'No description provided.'}
       </p>
 
-      <div className="flex items-center gap-4 text-xs text-gray-400 dark:text-gray-500">
+      <div className="flex items-center gap-4 text-xs text-[#737373]">
         {repo.language && (
           <div className="flex items-center gap-1.5">
             <span
@@ -97,7 +97,7 @@ export default function GitHubSection() {
   }, []);
 
   return (
-    <section id="github" className="py-24 bg-gray-50 dark:bg-gray-900/50">
+    <section id="github" className="py-24 bg-[#060A07]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -107,7 +107,7 @@ export default function GitHubSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <p className="text-primary-600 dark:text-primary-400 font-mono font-medium text-sm mb-2">
+          <p className="text-primary-400 font-mono font-medium text-sm mb-2">
             06. Open Source
           </p>
           <h2 className="section-heading">GitHub Activity</h2>
@@ -129,19 +129,19 @@ export default function GitHubSection() {
             rel="noopener noreferrer"
             className="block"
           >
-            <div className="card p-6 flex flex-col sm:flex-row items-center gap-6 hover:border-primary-300 dark:hover:border-primary-700 transition-colors group">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center shadow-lg flex-shrink-0">
-                <Github size={32} className="text-white" />
+            <div className="card p-6 flex flex-col sm:flex-row items-center gap-6 hover:border-primary-700 transition-colors group">
+              <div className="w-16 h-16 rounded-full bg-[#0B100D] border border-[#1F2922] flex items-center justify-center shadow-lg flex-shrink-0">
+                <Github size={32} className="text-primary-400" />
               </div>
               <div className="text-center sm:text-left flex-1">
-                <h3 className="font-bold text-gray-900 dark:text-white text-lg group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                <h3 className="font-bold text-[#F5F5F5] text-lg group-hover:text-primary-400 transition-colors">
                   @{siteConfig.githubUsername}
                 </h3>
-                <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">
+                <p className="text-[#A3A3A3] text-sm mt-1">
                   View full profile, contribution graph, and all repositories
                 </p>
               </div>
-              <ExternalLink size={20} className="text-gray-400 group-hover:text-accent-500 transition-colors flex-shrink-0" />
+              <ExternalLink size={20} className="text-[#737373] group-hover:text-primary-400 transition-colors flex-shrink-0" />
             </div>
           </a>
         </motion.div>
@@ -154,7 +154,7 @@ export default function GitHubSection() {
         )}
 
         {error && (
-          <div className="text-center py-12 text-gray-500 dark:text-gray-400">
+          <div className="text-center py-12 text-[#A3A3A3]">
             <Github size={40} className="mx-auto mb-4 opacity-50" />
             <p>{error}</p>
           </div>

@@ -19,7 +19,7 @@ export default function Home({ darkMode, toggleDarkMode }) {
           name="description"
           content={`${siteConfig.name} is a ${siteConfig.title} based in ${siteConfig.location}. ${siteConfig.description}`}
         />
-        <meta name="theme-color" content="#182d49" />
+        <meta name="theme-color" content="#050805" />
         <meta name="author" content={siteConfig.name} />
         <meta name="reply-to" content={siteConfig.email} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -34,7 +34,7 @@ export default function Home({ darkMode, toggleDarkMode }) {
         <link rel="canonical" href={siteConfig.siteUrl} />
       </Head>
 
-      <div className="min-h-screen bg-white dark:bg-gray-950 transition-colors duration-300">
+      <div className="min-h-screen bg-[#050805] text-[#F5F5F5] transition-colors duration-300">
         <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         <main>
           <Hero />

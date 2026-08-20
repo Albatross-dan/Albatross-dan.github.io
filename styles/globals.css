@@ -6,8 +6,8 @@
 
 @layer base {
   :root {
-    --gradient-start: #345f96;
-    --gradient-end: #3f9088;
+    --gradient-start: #050805;
+    --gradient-end: #0b100d;
   }
 
   html {
@@ -15,46 +15,42 @@
   }
 
   body {
-    @apply bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300;
+    @apply bg-[#050805] text-[#F5F5F5] transition-colors duration-300;
     font-family: 'Inter', system-ui, sans-serif;
   }
 
   ::selection {
-    @apply bg-primary-500/30 text-primary-900 dark:text-primary-100;
+    @apply bg-primary-500/30 text-white;
   }
 }
 
 @layer components {
   .section-heading {
-    @apply text-3xl md:text-4xl font-bold text-gray-900 dark:text-white;
+    @apply text-3xl md:text-4xl font-bold text-[#F5F5F5];
   }
 
   .section-subheading {
-    @apply text-gray-600 dark:text-gray-400 text-lg mt-3;
+    @apply text-[#A3A3A3] text-lg mt-3;
   }
 
   .card {
-    @apply bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300;
+    @apply bg-[#0B100D] rounded-2xl border border-[#1F2922] shadow-sm hover:shadow-xl transition-all duration-300;
   }
 
   .btn-primary {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary-700 hover:bg-primary-800 text-white font-semibold transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg shadow-primary-900/20;
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary-600 hover:bg-primary-500 text-[#050805] font-semibold transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg shadow-black/20;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-200 hover:scale-105 active:scale-95;
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-[#1F2922] bg-[#0B100D] text-[#F5F5F5] font-semibold hover:bg-[#111711] hover:border-primary-700 transition-all duration-200 hover:scale-105 active:scale-95;
   }
 
   .skill-bar {
-    @apply h-2 rounded-full bg-gray-100 dark:bg-gray-800 overflow-hidden;
-  }
-
-  .gradient-text {
-    @apply bg-gradient-to-r from-primary-500 to-accent-500 bg-clip-text text-transparent;
+    @apply h-2 rounded-full bg-[#111711] overflow-hidden;
   }
 
   .nav-link {
-    @apply relative text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white font-medium transition-colors duration-200;
+    @apply relative text-[#A3A3A3] hover:text-primary-400 font-medium transition-colors duration-200;
   }
 
   .nav-link::after {
@@ -69,26 +65,26 @@
 
 @layer utilities {
   .text-balance {
-    text-wrap: balance;
+    overflow-wrap: anywhere;
   }
 
   .bg-grid {
-    background-image: linear-gradient(rgba(52, 95, 150, 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(52, 95, 150, 0.06) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(34, 197, 94, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34, 197, 94, 0.05) 1px, transparent 1px);
     background-size: 32px 32px;
   }
 
   .bg-dots {
-    background-image: radial-gradient(circle, rgba(63, 144, 136, 0.18) 1px, transparent 1px);
+    background-image: radial-gradient(circle, rgba(34, 197, 94, 0.12) 1px, transparent 1px);
     background-size: 24px 24px;
   }
 
   .glow {
-    box-shadow: 0 0 40px rgba(52, 95, 150, 0.25);
+    box-shadow: 0 0 40px rgba(34, 197, 94, 0.12);
   }
 
   .glow-lg {
-    box-shadow: 0 0 80px rgba(31, 57, 93, 0.18);
+    box-shadow: 0 0 80px rgba(34, 197, 94, 0.08);
   }
 }
 
@@ -113,8 +109,8 @@
 .loader {
   width: 40px;
   height: 40px;
-  border: 3px solid rgba(52, 95, 150, 0.18);
-  border-top-color: #345f96;
+  border: 3px solid rgba(34, 197, 94, 0.15);
+  border-top-color: #22c55e;
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }
@@ -123,23 +119,11 @@
   to { transform: rotate(360deg); }
 }
 
-/* Gradient animation */
-.animate-gradient {
-  background-size: 300% 300%;
-  animation: gradient 6s ease infinite;
-}
-
-@keyframes gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
 /* Blinking cursor */
 .cursor-blink::after {
   content: '|';
   animation: blink 1s step-end infinite;
-  color: #345f96;
+  color: #22c55e;
 }
 
 @keyframes blink {

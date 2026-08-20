@@ -23,7 +23,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gray-50 dark:bg-gray-900/50 border-t border-gray-200 dark:border-gray-800">
+    <footer className="bg-[#060A07] border-t border-[#1F2922]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid sm:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
@@ -31,14 +31,14 @@ export default function Footer() {
             <a
               href="#"
               onClick={(e) => handleNavClick(e, '#hero')}
-              className="flex items-center gap-2 font-bold text-gray-900 dark:text-white mb-3"
+              className="flex items-center gap-2 font-bold text-[#F5F5F5] mb-3"
             >
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-600 to-accent-600 flex items-center justify-center">
-                <Code2 size={16} className="text-white" />
+              <div className="w-8 h-8 rounded-lg bg-primary-600 flex items-center justify-center">
+                <Code2 size={16} className="text-[#050805]" />
               </div>
               {siteConfig.name}
             </a>
-            <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+            <p className="text-sm text-[#A3A3A3] leading-relaxed">
               {siteConfig.title} based in {siteConfig.location}.
               Building the web, one commit at a time.
             </p>
@@ -46,7 +46,7 @@ export default function Footer() {
 
           {/* Nav links */}
           <div>
-            <h3 className="font-semibold text-gray-700 dark:text-gray-300 text-sm mb-4">
+            <h3 className="font-semibold text-[#D4D4D4] text-sm mb-4">
               Navigation
             </h3>
             <ul className="space-y-2">
@@ -55,7 +55,7 @@ export default function Footer() {
                   <a
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className="text-sm text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                    className="text-sm text-[#A3A3A3] hover:text-primary-400 transition-colors"
                   >
                     {link.label}
                   </a>
@@ -66,7 +66,7 @@ export default function Footer() {
 
           {/* Social & Contact */}
           <div>
-            <h3 className="font-semibold text-gray-700 dark:text-gray-300 text-sm mb-4">
+            <h3 className="font-semibold text-[#D4D4D4] text-sm mb-4">
               Connect
             </h3>
             <div className="flex gap-3 mb-4">
@@ -77,7 +77,7 @@ export default function Footer() {
                   target={label !== 'Email' ? '_blank' : undefined}
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="w-9 h-9 rounded-lg flex items-center justify-center text-gray-400 dark:text-gray-500 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-950/50 border border-gray-200 dark:border-gray-700 transition-all"
+                  className="w-9 h-9 rounded-lg flex items-center justify-center text-[#A3A3A3] hover:text-primary-400 hover:bg-[#0B100D] border border-[#1F2922] transition-all"
                 >
                   <Icon size={16} />
                 </a>
@@ -85,7 +85,7 @@ export default function Footer() {
             </div>
             <a
               href={siteConfig.social.email}
-              className="text-sm text-primary-600 dark:text-primary-400 hover:underline"
+              className="text-sm text-primary-400 hover:underline"
             >
               {siteConfig.email}
             </a>
@@ -93,14 +93,14 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 border-t border-gray-200 dark:border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-sm text-gray-400 dark:text-gray-500 flex items-center gap-1.5">
-            Made with <Heart size={14} className="text-red-400" fill="currentColor" /> by{' '}
-            <span className="font-semibold text-gray-600 dark:text-gray-400">
+        <div className="pt-8 border-t border-[#1F2922] flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-sm text-[#737373] flex items-center gap-1.5">
+            Made with <Heart size={14} className="text-primary-400" fill="currentColor" /> by{' '}
+            <span className="font-semibold text-[#A3A3A3]">
               {siteConfig.name}
             </span>
           </p>
-          <p className="text-sm text-gray-400 dark:text-gray-500">
+          <p className="text-sm text-[#737373]">
             © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
           </p>
         </div>

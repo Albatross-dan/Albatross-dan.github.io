@@ -8,18 +8,18 @@ import { projects, siteConfig } from '../lib/data';
 const PROJECTS_PER_PAGE = 6;
 
 const techColors = {
-  'React': 'bg-blue-100 text-blue-700 dark:bg-blue-950/50 dark:text-blue-300',
-  'Next.js': 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300',
-  'Node.js': 'bg-green-100 text-green-700 dark:bg-green-950/50 dark:text-green-300',
-  'Express': 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300',
-  'MongoDB': 'bg-green-100 text-green-700 dark:bg-green-950/50 dark:text-green-300',
-  'Socket.io': 'bg-yellow-100 text-yellow-700 dark:bg-yellow-950/50 dark:text-yellow-300',
-  'Tailwind CSS': 'bg-cyan-100 text-cyan-700 dark:bg-cyan-950/50 dark:text-cyan-300',
-  'TypeScript': 'bg-blue-100 text-blue-700 dark:bg-blue-950/50 dark:text-blue-300',
-  'Python': 'bg-yellow-100 text-yellow-700 dark:bg-yellow-950/50 dark:text-yellow-300',
-  'PostgreSQL': 'bg-indigo-100 text-indigo-700 dark:bg-indigo-950/50 dark:text-indigo-300',
-  'Framer Motion': 'bg-accent-100 text-accent-700 dark:bg-accent-950/50 dark:text-accent-300',
-  'default': 'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400',
+  'React': 'bg-[#0B100D] text-[#D4D4D4] border border-[#1F2922]',
+  'Next.js': 'bg-[#0B100D] text-[#D4D4D4] border border-[#1F2922]',
+  'Node.js': 'bg-[#0B100D] text-[#BBF7D0] border border-[#1F2922]',
+  'Express': 'bg-[#0B100D] text-[#D4D4D4] border border-[#1F2922]',
+  'MongoDB': 'bg-[#0B100D] text-[#BBF7D0] border border-[#1F2922]',
+  'Socket.io': 'bg-[#0B100D] text-[#A3A3A3] border border-[#1F2922]',
+  'Tailwind CSS': 'bg-[#0B100D] text-[#D4D4D4] border border-[#1F2922]',
+  'TypeScript': 'bg-[#0B100D] text-[#D4D4D4] border border-[#1F2922]',
+  'Python': 'bg-[#0B100D] text-[#A3A3A3] border border-[#1F2922]',
+  'PostgreSQL': 'bg-[#0B100D] text-[#D4D4D4] border border-[#1F2922]',
+  'Framer Motion': 'bg-[#0B100D] text-[#BBF7D0] border border-[#1F2922]',
+  'default': 'bg-[#0B100D] text-[#A3A3A3] border border-[#1F2922]',
 };
 
 function TechBadge({ tech }) {
@@ -45,13 +45,13 @@ function ProjectCard({ project, index }) {
       onMouseLeave={() => setHovered(false)}
       className={`card group relative overflow-hidden ${
         project.featured
-          ? 'md:col-span-2 border-primary-200 dark:border-primary-800/50'
+          ? 'md:col-span-2 border-[#1F2922]'
           : ''
       }`}
     >
       {/* Featured badge */}
       {project.featured && (
-        <div className="absolute top-4 right-4 z-10 flex items-center gap-1 px-3 py-1 rounded-full bg-gradient-to-r from-primary-600 to-accent-600 text-white text-xs font-semibold shadow-lg">
+        <div className="absolute top-4 right-4 z-10 flex items-center gap-1 px-3 py-1 rounded-full bg-[#0B100D] text-[#F5F5F5] border border-[#1F2922] text-xs font-semibold shadow-lg">
           <Star size={10} fill="currentColor" />
           Featured
         </div>
@@ -59,11 +59,7 @@ function ProjectCard({ project, index }) {
 
       {/* Preview area */}
       <div
-        className={`relative overflow-hidden bg-gradient-to-br ${
-          project.featured
-            ? 'from-primary-50 to-accent-50/50 dark:from-primary-950/30 dark:to-accent-950/30 h-52 md:h-64'
-            : 'from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 h-44'
-        }`}
+        className={`relative overflow-hidden ${project.featured ? 'bg-[#0B100D] h-52 md:h-64' : 'bg-[#0B100D] h-44'}`}
       >
         {project.image ? (
           <Image
@@ -90,7 +86,7 @@ function ProjectCard({ project, index }) {
         {/* Overlay on hover */}
         <motion.div
           animate={{ opacity: hovered ? 1 : 0 }}
-          className="absolute inset-0 bg-slate-950/10 dark:bg-slate-950/30 backdrop-blur-[1px] flex items-center justify-center gap-3"
+          className="absolute inset-0 bg-black/35 backdrop-blur-[1px] flex items-center justify-center gap-3"
         >
           {project.github && (
             <a
@@ -98,7 +94,7 @@ function ProjectCard({ project, index }) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="View GitHub repository"
-              className="px-4 py-2 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-xl font-semibold text-sm flex items-center gap-2 hover:scale-105 transition-transform shadow-xl"
+              className="px-4 py-2 bg-[#0B100D] text-[#F5F5F5] border border-[#1F2922] rounded-xl font-semibold text-sm flex items-center gap-2 hover:scale-105 transition-transform shadow-xl"
             >
               <Github size={16} />
               Code
@@ -110,7 +106,7 @@ function ProjectCard({ project, index }) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="View live demo"
-              className="px-4 py-2 bg-primary-600 text-white rounded-xl font-semibold text-sm flex items-center gap-2 hover:scale-105 transition-transform shadow-xl"
+              className="px-4 py-2 bg-primary-600 text-[#050805] rounded-xl font-semibold text-sm flex items-center gap-2 hover:scale-105 transition-transform shadow-xl"
             >
               <ExternalLink size={16} />
               Live Demo
@@ -123,25 +119,25 @@ function ProjectCard({ project, index }) {
       <div className="p-6">
         <div className="flex items-start justify-between gap-4 mb-3">
           <div>
-            <span className="text-xs font-mono text-primary-600 dark:text-primary-400 mb-1 block">
+            <span className="text-xs font-mono text-primary-400 mb-1 block">
               {project.category}
             </span>
-            <h3 className={`font-bold text-gray-900 dark:text-white ${project.featured ? 'text-2xl' : 'text-lg'}`}>
+            <h3 className={`font-bold text-[#F5F5F5] ${project.featured ? 'text-2xl' : 'text-lg'}`}>
               {project.title}
             </h3>
           </div>
           <span
             className={`px-2.5 py-1 rounded-full text-xs font-semibold flex-shrink-0 ${
               project.status === 'Live'
-                ? 'bg-green-100 text-green-700 dark:bg-green-950/50 dark:text-green-300'
-                : 'bg-yellow-100 text-yellow-700 dark:bg-yellow-950/50 dark:text-yellow-300'
+                ? 'bg-[#0B100D] text-[#BBF7D0] border border-[#1F2922]'
+                : 'bg-[#0B100D] text-[#D4D4D4] border border-[#1F2922]'
             }`}
           >
             {project.status}
           </span>
         </div>
 
-        <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
+        <p className="text-[#A3A3A3] text-sm leading-relaxed mb-4">
           {project.featured ? project.longDescription : project.description}
         </p>
 
@@ -159,7 +155,7 @@ function ProjectCard({ project, index }) {
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+              className="flex items-center gap-2 text-sm font-medium text-[#A3A3A3] hover:text-[#F5F5F5] transition-colors"
             >
               <Github size={16} />
               View Code
@@ -170,7 +166,7 @@ function ProjectCard({ project, index }) {
               href={project.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-sm font-medium text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+              className="flex items-center gap-2 text-sm font-medium text-primary-400 hover:text-primary-500 transition-colors"
             >
               <ExternalLink size={16} />
               Live Demo
@@ -200,7 +196,7 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="py-24">
+    <section id="projects" className="py-24 bg-[#060A07]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -210,7 +206,7 @@ export default function Projects() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <p className="text-primary-600 dark:text-primary-400 font-mono font-medium text-sm mb-2">
+          <p className="text-primary-400 font-mono font-medium text-sm mb-2">
             03. Projects
           </p>
           <h2 className="section-heading">What I&apos;ve Built</h2>
@@ -232,8 +228,8 @@ export default function Projects() {
               onClick={() => handleCategoryChange(cat)}
               className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                 activeCategory === cat
-                  ? 'bg-primary-700 text-white shadow-lg shadow-primary-900/20'
-                  : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
+                  ? 'bg-primary-600 text-[#050805] shadow-lg shadow-black/20'
+                  : 'bg-[#0B100D] text-[#A3A3A3] border border-[#1F2922] hover:bg-[#111711]'
               }`}
             >
               {cat} <span className="ml-1 opacity-70">({cat === 'All' ? projects.length : projects.filter((project) => project.category === cat).length})</span>
@@ -269,7 +265,7 @@ export default function Projects() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="text-center mt-12"
         >
-          <p className="text-gray-500 dark:text-gray-400 mb-4">
+          <p className="text-[#A3A3A3] mb-4">
             {filtered.length === projects.length
               ? 'Every project in the portfolio is shown here, with GitHub available for additional repository context.'
               : `Showing ${filtered.length} ${activeCategory.toLowerCase()} project${filtered.length === 1 ? '' : 's'}.`}

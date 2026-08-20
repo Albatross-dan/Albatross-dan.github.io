@@ -10,18 +10,18 @@ const categoryIcons = {
 };
 
 const categoryColors = {
-  Frontend: 'from-primary-600 to-accent-500',
-  Backend: 'from-emerald-600 to-teal-500',
-  Database: 'from-slate-700 to-primary-500',
-  Tools: 'from-accent-600 to-primary-500',
+  Frontend: 'bg-[#111711]',
+  Backend: 'bg-[#111711]',
+  Database: 'bg-[#111711]',
+  Tools: 'bg-[#111711]',
 };
 
 function SkillBar({ name, level, index, inView }) {
   return (
     <div className="group">
       <div className="flex justify-between items-center mb-1.5">
-        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{name}</span>
-        <span className="text-xs font-mono text-gray-400 dark:text-gray-500 group-hover:text-primary-500 transition-colors">
+        <span className="text-sm font-medium text-[#D4D4D4]">{name}</span>
+        <span className="text-xs font-mono text-[#737373] group-hover:text-primary-400 transition-colors">
           {level}%
         </span>
       </div>
@@ -30,7 +30,7 @@ function SkillBar({ name, level, index, inView }) {
           initial={{ width: 0 }}
           animate={inView ? { width: `${level}%` } : { width: 0 }}
           transition={{ duration: 0.8, delay: index * 0.05, ease: 'easeOut' }}
-          className="h-full rounded-full bg-gradient-to-r from-primary-600 to-accent-500"
+          className="h-full rounded-full bg-primary-500"
         />
       </div>
     </div>
@@ -50,10 +50,10 @@ function SkillCategory({ category, skillList, colorClass }) {
     >
       {/* Category header */}
       <div className="flex items-center gap-3 mb-6">
-        <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${colorClass} flex items-center justify-center text-lg shadow-lg`}>
+        <div className={`w-10 h-10 rounded-xl ${colorClass} flex items-center justify-center text-lg shadow-lg border border-[#1F2922]`}>
           {categoryIcons[category]}
         </div>
-        <h3 className="font-bold text-gray-900 dark:text-white text-lg">{category}</h3>
+        <h3 className="font-bold text-[#F5F5F5] text-lg">{category}</h3>
       </div>
 
       {/* Skills */}
@@ -76,7 +76,7 @@ export default function Skills() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section id="skills" className="py-24 bg-gray-50 dark:bg-gray-900/50">
+    <section id="skills" className="py-24 bg-[#060A07]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -86,7 +86,7 @@ export default function Skills() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <p className="text-primary-600 dark:text-primary-400 font-mono font-medium text-sm mb-2">
+          <p className="text-primary-400 font-mono font-medium text-sm mb-2">
             04. Skills
           </p>
           <h2 className="section-heading">My Tech Stack</h2>
@@ -102,7 +102,7 @@ export default function Skills() {
               key={category}
               category={category}
               skillList={skillList}
-              colorClass={categoryColors[category] || 'from-primary-600 to-accent-500'}
+              colorClass={categoryColors[category] || 'bg-[#111711]'}
             />
           ))}
         </div>
@@ -114,7 +114,7 @@ export default function Skills() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="mt-12 text-center"
         >
-          <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">Also familiar with:</p>
+          <p className="text-sm text-[#737373] mb-6">Also familiar with:</p>
           <div className="flex flex-wrap gap-2 justify-center">
             {[
               'Socket.io', 'Jest', 'Webpack', 'Vite', 'AWS', 'Nginx',
@@ -122,7 +122,7 @@ export default function Skills() {
             ].map((tech) => (
               <span
                 key={tech}
-                className="px-3 py-1.5 text-xs font-medium rounded-full border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-primary-300 dark:hover:border-primary-700 hover:text-primary-600 dark:hover:text-primary-400 transition-colors cursor-default"
+                className="px-3 py-1.5 text-xs font-medium rounded-full border border-[#1F2922] bg-[#0B100D] text-[#A3A3A3] hover:border-primary-700 hover:text-primary-400 transition-colors cursor-default"
               >
                 {tech}
               </span>

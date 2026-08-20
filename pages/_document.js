@@ -11,7 +11,7 @@ export default function Document() {
           rel="stylesheet"
         />
         <link rel="icon" href="/favicon.ico" />
-        <meta name="theme-color" content="#182d49" />
+        <meta name="theme-color" content="#050805" />
       </Head>
       <body className="antialiased">
         <Main />

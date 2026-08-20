@@ -45,7 +45,7 @@ export default function Navbar({ darkMode, toggleDarkMode }) {
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-white/80 dark:bg-gray-950/80 backdrop-blur-xl shadow-sm border-b border-gray-200/50 dark:border-gray-800/50'
+            ? 'bg-[#060A07]/90 backdrop-blur-xl shadow-sm border-b border-[#1F2922]/80'
             : 'bg-transparent'
         }`}
       >
@@ -55,10 +55,10 @@ export default function Navbar({ darkMode, toggleDarkMode }) {
             <a
               href="#"
               onClick={(e) => handleNavClick(e, '#')}
-              className="flex items-center gap-2 font-bold text-gray-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+              className="flex items-center gap-2 font-bold text-[#F5F5F5] hover:text-primary-400 transition-colors"
             >
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-600 to-accent-600 flex items-center justify-center">
-                <Code2 size={16} className="text-white" />
+              <div className="w-8 h-8 rounded-lg bg-primary-600 flex items-center justify-center">
+                <Code2 size={16} className="text-[#050805]" />
               </div>
               <span className="font-mono text-sm hidden sm:block">{siteConfig.githubUsername}</span>
             </a>
@@ -82,7 +82,7 @@ export default function Navbar({ darkMode, toggleDarkMode }) {
               <button
                 onClick={toggleDarkMode}
                 aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-                className="w-9 h-9 rounded-lg flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                className="w-9 h-9 rounded-lg flex items-center justify-center text-[#A3A3A3] hover:bg-[#0B100D] hover:text-primary-400 transition-colors"
               >
                 <AnimatePresence mode="wait">
                   <motion.span
@@ -109,7 +109,7 @@ export default function Navbar({ darkMode, toggleDarkMode }) {
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
                 aria-label="Toggle menu"
-                className="md:hidden w-9 h-9 rounded-lg flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                className="md:hidden w-9 h-9 rounded-lg flex items-center justify-center text-[#A3A3A3] hover:bg-[#0B100D] hover:text-primary-400 transition-colors"
               >
                 {mobileOpen ? <X size={20} /> : <Menu size={20} />}
               </button>
@@ -126,7 +126,7 @@ export default function Navbar({ darkMode, toggleDarkMode }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="fixed top-16 left-0 right-0 z-40 bg-white dark:bg-gray-950 border-b border-gray-200 dark:border-gray-800 shadow-lg md:hidden"
+            className="fixed top-16 left-0 right-0 z-40 bg-[#060A07] border-b border-[#1F2922] shadow-lg md:hidden"
           >
             <div className="px-4 py-4 flex flex-col gap-2">
               {navLinks.map((link) => (
@@ -134,7 +134,7 @@ export default function Navbar({ darkMode, toggleDarkMode }) {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="px-4 py-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-medium"
+                  className="px-4 py-3 rounded-xl text-[#A3A3A3] hover:bg-[#0B100D] hover:text-primary-400 transition-colors font-medium"
                 >
                   {link.label}
                 </a>

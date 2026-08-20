@@ -5,10 +5,10 @@ import { Mail, Github, Linkedin, Twitter, Send, MapPin, MessageSquare } from 'lu
 import { siteConfig } from '../lib/data';
 
 const socialLinks = [
-  { icon: Github, label: 'GitHub', href: siteConfig.social.github, color: 'hover:text-gray-900 dark:hover:text-white' },
-  { icon: Linkedin, label: 'LinkedIn', href: siteConfig.social.linkedin, color: 'hover:text-blue-600 dark:hover:text-blue-400' },
-  { icon: Twitter, label: 'Twitter', href: siteConfig.social.twitter, color: 'hover:text-sky-500 dark:hover:text-sky-400' },
-  { icon: Mail, label: 'Email', href: siteConfig.social.email, color: 'hover:text-primary-600 dark:hover:text-primary-400' },
+  { icon: Github, label: 'GitHub', href: siteConfig.social.github, color: 'hover:text-primary-400' },
+  { icon: Linkedin, label: 'LinkedIn', href: siteConfig.social.linkedin, color: 'hover:text-primary-400' },
+  { icon: Twitter, label: 'Twitter', href: siteConfig.social.twitter, color: 'hover:text-primary-400' },
+  { icon: Mail, label: 'Email', href: siteConfig.social.email, color: 'hover:text-primary-400' },
 ];
 
 export default function Contact() {
@@ -73,7 +73,7 @@ export default function Contact() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <p className="text-primary-600 dark:text-primary-400 font-mono font-medium text-sm mb-2">
+          <p className="text-primary-400 font-mono font-medium text-sm mb-2">
             07. Contact
           </p>
           <h2 className="section-heading">Let&apos;s Work Together</h2>
@@ -91,10 +91,10 @@ export default function Contact() {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
+              <h3 className="text-xl font-bold text-[#F5F5F5] mb-4">
                 Get In Touch
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+              <p className="text-[#A3A3A3] leading-relaxed">
                 Whether you have a project, a job opportunity, or just want to say hi —
                 my inbox is always open. I&apos;ll get back to you as soon as possible!
               </p>
@@ -104,26 +104,26 @@ export default function Contact() {
             <div className="space-y-4">
               <a
                 href={siteConfig.social.email}
-                className="flex items-center gap-4 p-4 rounded-xl border border-gray-100 dark:border-gray-800 hover:border-primary-300 dark:hover:border-primary-700 hover:bg-primary-50 dark:hover:bg-primary-950/20 transition-all group"
+                className="flex items-center gap-4 p-4 rounded-xl border border-[#1F2922] hover:border-primary-700 hover:bg-[#0B100D] transition-all group"
               >
-                <div className="w-10 h-10 rounded-lg bg-primary-100 dark:bg-primary-950/50 flex items-center justify-center group-hover:bg-primary-200 dark:group-hover:bg-primary-900/50 transition-colors">
-                  <Mail size={18} className="text-primary-600 dark:text-primary-400" />
+                <div className="w-10 h-10 rounded-lg bg-[#111711] flex items-center justify-center group-hover:bg-[#162017] transition-colors border border-[#1F2922]">
+                  <Mail size={18} className="text-primary-400" />
                 </div>
                 <div>
-                  <p className="text-xs text-gray-400 dark:text-gray-500">Email</p>
-                  <p className="font-medium text-gray-700 dark:text-gray-300 text-sm">
+                  <p className="text-xs text-[#737373]">Email</p>
+                  <p className="font-medium text-[#D4D4D4] text-sm">
                     {siteConfig.email}
                   </p>
                 </div>
               </a>
 
-              <div className="flex items-center gap-4 p-4 rounded-xl border border-gray-100 dark:border-gray-800">
-                <div className="w-10 h-10 rounded-lg bg-green-100 dark:bg-green-950/50 flex items-center justify-center">
-                  <MapPin size={18} className="text-green-600 dark:text-green-400" />
+              <div className="flex items-center gap-4 p-4 rounded-xl border border-[#1F2922]">
+                <div className="w-10 h-10 rounded-lg bg-[#111711] flex items-center justify-center border border-[#1F2922]">
+                  <MapPin size={18} className="text-primary-400" />
                 </div>
                 <div>
-                  <p className="text-xs text-gray-400 dark:text-gray-500">Location</p>
-                  <p className="font-medium text-gray-700 dark:text-gray-300 text-sm">
+                  <p className="text-xs text-[#737373]">Location</p>
+                  <p className="font-medium text-[#D4D4D4] text-sm">
                     {siteConfig.location}
                   </p>
                 </div>
@@ -132,7 +132,7 @@ export default function Contact() {
 
             {/* Social links */}
             <div>
-              <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-4">
+              <p className="text-sm font-medium text-[#737373] mb-4">
                 Find me on:
               </p>
               <div className="flex gap-3">
@@ -143,7 +143,7 @@ export default function Contact() {
                     target={label !== 'Email' ? '_blank' : undefined}
                     rel="noopener noreferrer"
                     aria-label={label}
-                    className={`w-11 h-11 rounded-xl flex items-center justify-center border border-gray-200 dark:border-gray-700 text-gray-400 dark:text-gray-500 hover:scale-110 hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-200 ${color}`}
+                    className={`w-11 h-11 rounded-xl flex items-center justify-center border border-[#1F2922] text-[#A3A3A3] hover:scale-110 hover:border-primary-700 transition-all duration-200 ${color}`}
                   >
                     <Icon size={20} />
                   </a>
@@ -160,13 +160,13 @@ export default function Contact() {
           >
             {submitted ? (
               <div className="card p-8 text-center h-full flex flex-col items-center justify-center gap-4">
-                <div className="w-16 h-16 rounded-full bg-green-100 dark:bg-green-950/50 flex items-center justify-center">
-                  <MessageSquare size={28} className="text-green-600 dark:text-green-400" />
+                <div className="w-16 h-16 rounded-full bg-[#111711] flex items-center justify-center border border-[#1F2922]">
+                  <MessageSquare size={28} className="text-primary-400" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                <h3 className="text-xl font-bold text-[#F5F5F5]">
                   Message Sent! 🎉
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-[#A3A3A3]">
                   Thanks for reaching out. I&apos;ll get back to you soon!
                 </p>
                 <button
@@ -181,7 +181,7 @@ export default function Contact() {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                    className="block text-sm font-medium text-[#D4D4D4] mb-2"
                   >
                     Your Name
                   </label>
@@ -194,14 +194,14 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="Jane Smith"
                     required
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 transition-colors text-sm"
+                    className="w-full px-4 py-3 rounded-xl border border-[#1F2922] bg-[#060A07] text-[#F5F5F5] placeholder-[#737373] focus:outline-none focus:ring-2 focus:ring-primary-500/40 focus:border-primary-500 transition-colors text-sm"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                    className="block text-sm font-medium text-[#D4D4D4] mb-2"
                   >
                     Email Address
                   </label>
@@ -214,14 +214,14 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="jane@example.com"
                     required
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 transition-colors text-sm"
+                    className="w-full px-4 py-3 rounded-xl border border-[#1F2922] bg-[#060A07] text-[#F5F5F5] placeholder-[#737373] focus:outline-none focus:ring-2 focus:ring-primary-500/40 focus:border-primary-500 transition-colors text-sm"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                    className="block text-sm font-medium text-[#D4D4D4] mb-2"
                   >
                     Message
                   </label>
@@ -233,12 +233,12 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="Hi Dan, I'd love to discuss..."
                     required
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 transition-colors text-sm resize-none"
+                    className="w-full px-4 py-3 rounded-xl border border-[#1F2922] bg-[#060A07] text-[#F5F5F5] placeholder-[#737373] focus:outline-none focus:ring-2 focus:ring-primary-500/40 focus:border-primary-500 transition-colors text-sm resize-none"
                   />
                 </div>
 
                 {error && (
-                  <p className="text-red-500 dark:text-red-400 text-sm" role="alert">
+                  <p className="text-red-400 text-sm" role="alert">
                     {error}
                   </p>
                 )}
