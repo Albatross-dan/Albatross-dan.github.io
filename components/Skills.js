@@ -6,14 +6,20 @@ const categoryIcons = {
   Frontend: '🎨',
   Backend: '⚙️',
   Database: '🗄️',
-  Tools: '🛠️',
+  Deployment: '🚀',
+  'Development Tools': '🛠️',
+  'AI / Productivity': '🤖',
+  Design: '🧩',
 };
 
 const categoryColors = {
   Frontend: 'bg-[#111711]',
   Backend: 'bg-[#111711]',
   Database: 'bg-[#111711]',
-  Tools: 'bg-[#111711]',
+  Deployment: 'bg-[#111711]',
+  'Development Tools': 'bg-[#111711]',
+  'AI / Productivity': 'bg-[#111711]',
+  Design: 'bg-[#111711]',
 };
 
 function SkillBar({ name, level, index, inView }) {
@@ -96,7 +102,7 @@ export default function Skills() {
         </motion.div>
 
         {/* Skills grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {Object.entries(skills).map(([category, skillList]) => (
             <SkillCategory
               key={category}
@@ -114,20 +120,7 @@ export default function Skills() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="mt-12 text-center"
         >
-          <p className="text-sm text-[#737373] mb-6">Also familiar with:</p>
-          <div className="flex flex-wrap gap-2 justify-center">
-            {[
-              'Socket.io', 'Jest', 'Webpack', 'Vite', 'AWS', 'Nginx',
-              'JWT', 'OAuth', 'GitHub Actions', 'Prisma', 'Mongoose', 'Axios',
-            ].map((tech) => (
-              <span
-                key={tech}
-                className="px-3 py-1.5 text-xs font-medium rounded-full border border-[#1F2922] bg-[#0B100D] text-[#A3A3A3] hover:border-primary-700 hover:text-primary-400 transition-colors cursor-default"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
+          <p className="text-sm text-[#737373] mb-2">Tools I actually use and continue improving with real projects.</p>
         </motion.div>
       </div>
     </section>

@@ -104,7 +104,7 @@ export default function Hero() {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0B100D] border border-[#1F2922] text-[#A3A3A3] text-sm font-medium mb-6"
             >
               <Sparkles size={14} className="text-primary-400" />
-              Open to opportunities
+              {siteConfig.availableForWork ? 'Available for freelance work' : 'Currently focused on active builds'}
             </motion.div>
 
             {/* Name */}
@@ -125,7 +125,16 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="mt-2 text-xl sm:text-2xl font-medium text-[#D4D4D4] font-mono"
             >
-              {'< '}{siteConfig.title}{' />'}
+              {'< '}{siteConfig.title}{' • '}{siteConfig.branding.identity}{' />'}
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.25 }}
+              className="mt-3 text-sm sm:text-base text-primary-400 font-mono"
+            >
+              {siteConfig.program} at {siteConfig.university} • {siteConfig.branding.terminalStatus}
             </motion.p>
 
             {/* Tagline */}
@@ -147,11 +156,11 @@ export default function Hero() {
             >
               <button onClick={scrollToProjects} className="btn-primary">
                 <ExternalLink size={18} />
-                View Projects
+                See My Work
               </button>
               <button onClick={scrollToContact} className="btn-secondary">
                 <Mail size={18} />
-                Get In Touch
+                Start a Project
               </button>
               <a href={siteConfig.resumeUrl} download className="btn-secondary">
                 <Download size={18} />

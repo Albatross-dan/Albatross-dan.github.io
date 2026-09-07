@@ -70,9 +70,9 @@ export default function Experience() {
           <p className="text-primary-400 font-mono font-medium text-sm mb-2">
             05. Journey
           </p>
-          <h2 className="section-heading">My Experience</h2>
+          <h2 className="section-heading">Experience Snapshot</h2>
           <p className="section-subheading max-w-2xl mx-auto">
-            The path that shaped me as a developer
+            Key steps that shaped my development path so far
           </p>
         </motion.div>
 

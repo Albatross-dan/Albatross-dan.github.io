@@ -2,10 +2,19 @@ import Head from 'next/head';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import About from '../components/About';
+import CurrentlyBuilding from '../components/CurrentlyBuilding';
+import FeaturedWork from '../components/FeaturedWork';
 import Projects from '../components/Projects';
+import Services from '../components/Services';
+import HowIWork from '../components/HowIWork';
 import Skills from '../components/Skills';
+import CurrentlyLearning from '../components/CurrentlyLearning';
+import BehindTheBuild from '../components/BehindTheBuild';
+import JourneyTimeline from '../components/JourneyTimeline';
 import Experience from '../components/Experience';
+import Testimonials from '../components/Testimonials';
 import GitHubSection from '../components/GitHubSection';
+import FreelanceCTA from '../components/FreelanceCTA';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import { siteConfig } from '../lib/data';
@@ -39,10 +48,19 @@ export default function Home({ darkMode, toggleDarkMode }) {
         <main>
           <Hero />
           <About />
+          <CurrentlyBuilding />
+          <FeaturedWork />
           <Projects />
+          <Services />
+          <HowIWork />
           <Skills />
+          <CurrentlyLearning />
+          <BehindTheBuild />
+          <JourneyTimeline />
           <Experience />
+          <Testimonials />
           <GitHubSection />
+          <FreelanceCTA />
           <Contact />
         </main>
         <Footer />

@@ -4,10 +4,12 @@ import { Moon, Sun, Menu, X, Code2 } from 'lucide-react';
 import { siteConfig } from '../lib/data';
 
 const navLinks = [
+  { href: '#hero', label: 'Home' },
   { href: '#about', label: 'About' },
   { href: '#projects', label: 'Projects' },
+  { href: '#services', label: 'Services' },
   { href: '#skills', label: 'Skills' },
-  { href: '#experience', label: 'Experience' },
+  { href: '#journey', label: 'Journey' },
   { href: '#contact', label: 'Contact' },
 ];
 

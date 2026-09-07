@@ -2,10 +2,12 @@ import { Github, Linkedin, Twitter, Mail, Heart, Code2 } from 'lucide-react';
 import { siteConfig } from '../lib/data';
 
 const navLinks = [
+  { href: '#hero', label: 'Home' },
   { href: '#about', label: 'About' },
   { href: '#projects', label: 'Projects' },
+  { href: '#services', label: 'Services' },
   { href: '#skills', label: 'Skills' },
-  { href: '#experience', label: 'Experience' },
+  { href: '#journey', label: 'Journey' },
   { href: '#contact', label: 'Contact' },
 ];
 
@@ -39,8 +41,8 @@ export default function Footer() {
               {siteConfig.name}
             </a>
             <p className="text-sm text-[#A3A3A3] leading-relaxed">
-              {siteConfig.title} based in {siteConfig.location}.
-              Building the web, one commit at a time.
+              {siteConfig.program} student at {siteConfig.university}.
+              Building digital products from {siteConfig.location}.
             </p>
           </div>
 

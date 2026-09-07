@@ -1,28 +1,28 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Heart, Zap, Target, Users } from 'lucide-react';
-import { siteConfig } from '../lib/data';
+import { siteConfig, projects } from '../lib/data';
 
 const values = [
   {
     icon: Zap,
-    title: 'Performance First',
-    description: 'I build fast, optimized applications that deliver exceptional user experiences.',
+    title: 'Builder Mindset',
+    description: 'I like understanding how things work, then building practical solutions from scratch.',
   },
   {
     icon: Target,
-    title: 'Problem Solver',
-    description: 'Breaking down complex challenges into elegant, maintainable solutions.',
+    title: 'Problem to Product',
+    description: 'I focus on solving real problems through usable and maintainable digital products.',
   },
   {
     icon: Heart,
-    title: 'Passionate Learner',
-    description: 'Constantly exploring new technologies and sharpening my craft every day.',
+    title: 'Continuous Learning',
+    description: 'I am actively learning in class and through real projects every week.',
   },
   {
     icon: Users,
-    title: 'Team Player',
-    description: 'Collaborating effectively, communicating clearly, and always delivering.',
+    title: 'Clear Collaboration',
+    description: 'I keep communication simple, stay open to feedback, and iterate quickly.',
   },
 ];
 
@@ -59,7 +59,7 @@ export default function About() {
             </p>
             <h2 className="section-heading">Who I Am</h2>
             <p className="section-subheading max-w-2xl mx-auto">
-              A self-driven developer building meaningful digital experiences
+              Computer Science student, full-stack developer, and digital builder
             </p>
           </motion.div>
 
@@ -68,31 +68,28 @@ export default function About() {
             <motion.div variants={itemVariants} className="space-y-5">
               <p className="text-[#D4D4D4] text-lg leading-relaxed">
                 Hey! I&apos;m <strong className="text-[#F5F5F5]">{siteConfig.name}</strong> — a 
-                full-stack developer based in {siteConfig.location} with a passion for building
-                high-quality web applications that make a real impact.
+                {siteConfig.program} student at {siteConfig.university} and a developer based in {siteConfig.location}.
               </p>
               <p className="text-[#A3A3A3] leading-relaxed">
-                My journey into coding started in 2021 through online platforms like freeCodeCamp
-                and The Odin Project. Since then, I&apos;ve been on a continuous learning path,
-                working on personal projects, freelance work, and diving deep into modern
-                JavaScript ecosystems.
+                I&apos;m building real software products while continuing to improve how I design systems,
+                write maintainable code, and ship features that people can actually use.
               </p>
               <p className="text-[#A3A3A3] leading-relaxed">
-                My flagship project, <strong className="text-primary-400">TournaHub</strong>,
-                is a real-time tournament management platform showcasing my ability to architect
-                and build full-stack applications from the ground up.
+                Current focus areas include <strong className="text-primary-400">AEGIS</strong> and
+                <strong className="text-primary-400"> TournaHub</strong>, where I&apos;m growing in product thinking,
+                backend engineering, and full-stack delivery.
               </p>
               <p className="text-[#A3A3A3] leading-relaxed">
-                I&apos;m currently looking for opportunities where I can contribute, grow, and
-                continue building things that matter. Let&apos;s connect!
+                I also help people and small teams get ideas online through websites, digital tools,
+                and creative media support.
               </p>
 
-              {/* Quick stats */}
+              {/* Grounded highlights */}
               <div className="grid grid-cols-3 gap-4 pt-4">
                 {[
-                  { value: '3+', label: 'Years Learning' },
-                  { value: '10+', label: 'Projects Built' },
-                  { value: '100%', label: 'Committed' },
+                  { value: '2021', label: 'Started Coding' },
+                  { value: String(projects.length), label: 'Projects Listed' },
+                  { value: siteConfig.availableForWork ? 'OPEN' : 'BUSY', label: 'Freelance Status' },
                 ].map((stat) => (
                   <div
                     key={stat.label}

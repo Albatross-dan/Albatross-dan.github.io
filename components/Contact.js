@@ -76,9 +76,9 @@ export default function Contact() {
           <p className="text-primary-400 font-mono font-medium text-sm mb-2">
             07. Contact
           </p>
-          <h2 className="section-heading">Let&apos;s Work Together</h2>
+          <h2 className="section-heading">Let&apos;s Build Something Real</h2>
           <p className="section-subheading max-w-2xl mx-auto">
-            Have a project in mind or want to discuss an opportunity? I&apos;d love to hear from you.
+            Have an idea, project, or freelance request? Send a message and let&apos;s talk.
           </p>
         </motion.div>
 
@@ -95,8 +95,8 @@ export default function Contact() {
                 Get In Touch
               </h3>
               <p className="text-[#A3A3A3] leading-relaxed">
-                Whether you have a project, a job opportunity, or just want to say hi —
-                my inbox is always open. I&apos;ll get back to you as soon as possible!
+                I&apos;m open to freelance projects, collaborations, and technical conversations.
+                Tell me what you need and I&apos;ll get back to you as soon as possible.
               </p>
             </div>
 
